@@ -37,8 +37,8 @@ export default function TributePage() {
   ]
 
   const tributeVideos = [
-  { src: "/saumya-kr.mp4", title: "Saumya" },
-  { src: "/dhwani.mp4", title: "Dhwani" },
+  { src: "https://www.youtube.com/embed/1CXIlINcOHs", title: "Saumya" },
+  { src: "https://www.youtube.com/embed/b4bLRdFyCi8", title: "Dhwani" },
   { src: "/vidhi.mp4", title: "Vidhi" },
   ];
 
@@ -67,42 +67,42 @@ export default function TributePage() {
   ]
 
   const timelineEvents = [
-    {
-      year: "Childhood",
-      title: "The Beginning of Everything",
-      description: "Two little souls finding each other in a big world",
-      image: "/kr-5.jpg?height=200&width=300&text=Childhood+Memories",
-      details: "From playground adventures to sharing secrets under blanket forts",
-    },
-    {
-      year: "School Days",
-      title: "Growing Up Side by Side",
-      description: "Navigating homework, crushes, and finding ourselves",
-      image: "/KR-1.jpg?height=200&width=300&text=School+Adventures",
-      details: "Late night study sessions that turned into life conversations",
-    },
-    {
-      year: "Teenage Years",
-      title: "Weathering the Storm",
-      description: "When everything felt dramatic, we had each other",
-      image: "/kr-9.jpg?height=200&width=300&text=Teen+Years",
-      details: "First heartbreaks, big dreams, and endless phone calls",
-    },
-    {
-      year: "Young Adults",
-      title: "Chasing Dreams Together",
-      description: "Different paths, same unwavering support",
-      image: "/kr-4.jpg?height=200&width=300&text=Young+Adults",
-      details: "College adventures, career starts, and midnight pep talks",
-    },
-    {
-      year: "Present",
-      title: "Still Here, Still Us",
-      description: "Distance means nothing when friendship means everything",
-      image: "/kr-8.jpg?height=300&width=300&text=Present+Day",
-      details: "Video calls, surprise visits, and love that never fades",
-    },
-  ]
+  {
+    year: "Childhood",
+    title: "The Beginning of Everything",
+    description: "Two little souls finding each other in a big world",
+    image: "/kr-5.jpg",
+    details: "From playground adventures to sharing secrets under blanket forts",
+  },
+  {
+    year: "School Days",
+    title: "Growing Up Side by Side",
+    description: "Navigating homework, crushes, and finding ourselves",
+    image: "/kr-1.jpg", // CORRECTED
+    details: "Late night study sessions that turned into life conversations",
+  },
+  {
+    year: "Teenage Years",
+    title: "Weathering the Storm",
+    description: "When everything felt dramatic, we had each other",
+    image: "/kr-9.jpg",
+    details: "First heartbreaks, big dreams, and endless phone calls",
+  },
+  {
+    year: "Young Adults",
+    title: "Chasing Dreams Together",
+    description: "Different paths, same unwavering support",
+    image: "/kr-4.jpg",
+    details: "College adventures, career starts, and midnight pep talks",
+  },
+  {
+    year: "Present",
+    title: "Still Here, Still Us",
+    description: "Distance means nothing when friendship means everything",
+    image: "/kr-8.jpg",
+    details: "Video calls, surprise visits, and love that never fades",
+  },
+];
 
   const insideJokes = [
     {
@@ -211,19 +211,15 @@ export default function TributePage() {
   ]
 
   const photos = [
-    { id: 1, src: "/kr-1-1.jpg?height=300&width=250&text=Where+it+all+began", caption: "Where it all began" },
-    { id: 2, src: "/kr-2-2.jpg?height=400&width=300&text=Growing+up+together", caption: "Growing up together" },
-    { id: 3, src: "/kr-3-3.jpg?height=350&width=280&text=Coffee+talks", caption: "Coffee talks and dreams" },
-    { id: 4, src: "/kr-4-4.jpg?height=320&width=260&text=Sunset+conversations", caption: "Sunset conversations" },
-    { id: 5, src: "/kr-5-5.jpg?height=380&width=290&text=Unguarded+laughter", caption: "Unguarded laughter" },
-    {
-      id: 6,
-      src: "/kr-6-6.jpg?height=360&width=270&text=Through+thick+and+thin",
-      caption: "Through thick and thin",
-    },
-    { id: 7, src: "/kr-7-7.jpg?height=340&width=280&text=Adventure+time", caption: "Adventure time" },
-    { id: 8, src: "/KR-3.jpg?height=370&width=290&text=Quiet+moments", caption: "Quiet moments" },
-  ]
+  { id: 1, src: "/kr-1-1.jpg", caption: "Where it all began" },
+  { id: 2, src: "/kr-2-2.JPG", caption: "Growing up together" }, // CORRECTED
+  { id: 3, src: "/kr-3-3.jpg", caption: "Coffee talks and dreams" },
+  { id: 4, src: "/kr-4-4.jpg", caption: "Sunset conversations" },
+  { id: 5, src: "/kr-5-5.jpg", caption: "Unguarded laughter" },
+  { id: 6, src: "/kr-6-6.jpg", caption: "Through thick and thin" },
+  { id: 7, src: "/kr-7-7.jpg", caption: "Adventure time" },
+  { id: 8, src: "/kr-3.jpg", caption: "Quiet moments" }, // CORRECTED
+];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -794,38 +790,56 @@ export default function TributePage() {
               </div>
 
               <div className="space-y-4">
-                {/* Main Video Player */}
-                <video
-                  // The 'key' is crucial! It forces React to re-render the video player when the src changes.
-                  key={tributeVideos[currentVideoIndex].src}
-                  controls
-                  autoPlay // Automatically plays the video when you switch
-                  className="w-full rounded-lg shadow-lg aspect-video"
-                >
-                  <source src={tributeVideos[currentVideoIndex].src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+  {/* Smart Video Player */}
+  {tributeVideos[currentVideoIndex].src.includes('youtube.com') ? (
 
-                {/* Video Playlist/Thumbnails */}
-                <div className="flex justify-center gap-4 pt-2">
-                  {tributeVideos.map((video, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentVideoIndex(index)}
-                      className={`w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300
-                        ${currentVideoIndex === index
-                          ? "border-purple-500 scale-105 shadow-lg"
-                          : "border-gray-300 hover:border-purple-400"
-                        }`}
-                    >
-                      {/* This is a simple text placeholder for a thumbnail */}
-                      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                        <p className="text-xs text-center font-quicksand text-gray-700 px-1">{video.title}</p>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
+    // YouTube Player
+    <div className="w-full rounded-lg shadow-lg aspect-video overflow-hidden bg-black">
+      <iframe
+        key={tributeVideos[currentVideoIndex].src}
+        className="w-full h-full"
+        src={`${tributeVideos[currentVideoIndex].src}?autoplay=1&rel=0`}
+        title="Tribute Video Player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+
+  ) : (
+
+    // Normal Player for local files
+    <video
+      key={tributeVideos[currentVideoIndex].src}
+      controls
+      autoPlay
+      className="w-full rounded-lg shadow-lg aspect-video"
+    >
+      <source src={tributeVideos[currentVideoIndex].src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+  )}
+
+  {/* Video Playlist (This part stays the same) */}
+  <div className="flex justify-center gap-4 pt-2">
+    {tributeVideos.map((video, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentVideoIndex(index)}
+        className={`w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300
+          ${currentVideoIndex === index
+            ? "border-purple-500 scale-105 shadow-lg"
+            : "border-gray-300 hover:border-purple-400"
+          }`}
+      >
+        <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+          <p className="text-xs text-center font-quicksand text-gray-700 px-1">{video.title}</p>
+        </div>
+      </button>
+    ))}
+  </div>
+</div>
             </motion.div>
           </motion.div>
         )}
