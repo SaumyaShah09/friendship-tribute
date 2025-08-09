@@ -37,8 +37,8 @@ export default function TributePage() {
   ]
 
   const tributeVideos = [
-    { src: "/saumya-kr.mp4", title: "Saumya" },
-    { src: "/dhwani.mp4", title: "Dhwani" },
+    { src: "/Saumya-kr.mp4", title: "Saumya" },
+    { src: "/Dhwani.mp4", title: "Dhwani" },
     { src: "/vidhi.mp4", title: "Vidhi" },
   ];
 
@@ -221,7 +221,7 @@ export default function TributePage() {
       caption: "Through thick and thin",
     },
     { id: 7, src: "/kr-7-7.jpg?height=340&width=280&text=Adventure+time", caption: "Adventure time" },
-    { id: 8, src: "/kr-3.jpg?height=370&width=290&text=Quiet+moments", caption: "Quiet moments" },
+    { id: 8, src: "/KR-3.jpg?height=370&width=290&text=Quiet+moments", caption: "Quiet moments" },
   ]
 
   useEffect(() => {
