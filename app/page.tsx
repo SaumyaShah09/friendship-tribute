@@ -37,10 +37,11 @@ export default function TributePage() {
   ]
 
   const tributeVideos = [
-    { src: "/Saumya-kr.mp4", title: "Saumya" },
-    { src: "/Dhwani.mp4", title: "Dhwani" },
-    { src: "/vidhi.mp4", title: "Vidhi" },
+  { src: "/Saumya-kr.mp4", title: "Saumya" },
+  { src: "/Dhwani.mp4", title: "Dhwani" },
+  { src: "/vidhi.mp4", title: "Vidhi" },
   ];
+
 
   const gratefulMoments = [
     {
@@ -77,7 +78,7 @@ export default function TributePage() {
       year: "School Days",
       title: "Growing Up Side by Side",
       description: "Navigating homework, crushes, and finding ourselves",
-      image: "/kr-1.jpg?height=200&width=300&text=School+Adventures",
+      image: "/KR-1.jpg?height=200&width=300&text=School+Adventures",
       details: "Late night study sessions that turned into life conversations",
     },
     {
