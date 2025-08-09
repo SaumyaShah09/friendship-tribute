@@ -37,8 +37,8 @@ export default function TributePage() {
   ]
 
   const tributeVideos = [
-  { src: "/Saumya-kr.mp4", title: "Saumya" },
-  { src: "/Dhwani.mp4", title: "Dhwani" },
+  { src: "/saumya-kr.mp4", title: "Saumya" },
+  { src: "/dhwani.mp4", title: "Dhwani" },
   { src: "/vidhi.mp4", title: "Vidhi" },
   ];
 
